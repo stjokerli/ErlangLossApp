@@ -51,11 +51,13 @@ st.header("Calculate Erlang B Loss Probability")
 # Sample
 st.write("### Sample Calculation")
 st.write("For example, if the offered traffic (r) is 1.33 Erlangs and there are 5 servers (M), the loss probability is calculated as follows:")
+st.write("### Input")
 traffic_intensity = st.number_input("Enter the offered traffic in Erlangs (r):", min_value=0.0, value=1.33, step=0.01)
 servers = st.number_input("Enter the number of servers (M):", min_value=1, value=5, step=1)
 
 if st.button("Calculate Loss Probability"):
     loss_probability = erlang_b(traffic_intensity, servers)
+    st.write("### Output")
     st.write(f"The Erlang B Loss Probability is:")
     st.code(f"{loss_probability:.4f}", language='python', line_numbers=False)    
 
@@ -65,13 +67,14 @@ st.header("Generate Erlang Loss Table")
 # Sample
 st.write("### Sample Calculation")
 st.write("For example, if we wanna a table that shows the loss probability for different traffic intensities (0.1 to 20 with 0.1 as step) and different numbers of servers (1 to 10 servers), the input should be as follows:")
+st.write("### Input")
 max_servers = st.number_input("Enter the maximum number of servers (M) to consider:", min_value=1, value=10, step=1)
 min_traffic = st.number_input("Enter the minimum traffic intensity (r) to consider:", min_value=0.1, value=0.1, step=0.01)
 max_traffic = st.number_input("Enter the maximum traffic intensity (r) to consider:", min_value=0.1, value=20.0, step=0.01)
 
 if st.button("Generate Loss Table"):
     loss_table = erlang_loss_table(max_servers, max_traffic, min_traffic)
-    st.write("### Erlang Loss Table")
+    st.write("### Output Erlang Loss Table")
     st.dataframe(loss_table)
     st.download_button(
         label="Download Loss Table as CSV",
