@@ -56,7 +56,8 @@ servers = st.number_input("Enter the number of servers (M):", min_value=1, value
 
 if st.button("Calculate Loss Probability"):
     loss_probability = erlang_b(traffic_intensity, servers)
-    st.code(f"The Erlang B Loss Probability is: {loss_probability:.4f}", language='python')
+    st.write(f"The Erlang B Loss Probability is:")
+    st.code(f"{loss_probability:.4f}", language='python')
     
 
 
