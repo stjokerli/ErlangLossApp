@@ -39,8 +39,8 @@ def erlang_loss_table(max_servers, max_traffic, min_traffic=1):
         data.append(row)
 
     # Create a DataFrame to display the results
-    df = pd.DataFrame(data, index=[f"Servers {i}" for i in range(1, max_servers + 1)],
-                      columns=[f"Traffic {i:.2f} Erlangs" for i in np.arange(min_traffic, max_traffic + 0.1, 0.1)])
+    df = pd.DataFrame(data, index=[f"M = {i}" for i in range(1, max_servers + 1)],
+                      columns=[f"r = {i:.2f}" for i in np.arange(min_traffic, max_traffic + 0.1, 0.1)])
     return df.T
 
 # Streamlit UI
