@@ -40,7 +40,7 @@ def erlang_loss_table(max_servers, max_traffic, min_traffic=1):
 
     # Create a DataFrame to display the results
     df = pd.DataFrame(data, index=[f"Servers {i}" for i in range(1, max_servers + 1)],
-                      columns=[f"Traffic {i:.1f} Erlangs" for i in np.arange(min_traffic, max_traffic + 0.1, 0.1)])
+                      columns=[f"Traffic {i:.2f} Erlangs" for i in np.arange(min_traffic, max_traffic + 0.1, 0.1)])
     return df.T
 
 # Streamlit UI
@@ -64,8 +64,8 @@ if st.button("Calculate Loss Probability"):
 # Session 2: Generate Erlang Loss Table
 st.header("Generate Erlang Loss Table")
 max_servers = st.number_input("Enter the maximum number of servers (M) to consider:", min_value=1, value=10, step=1)
-min_traffic = st.number_input("Enter the minimum traffic intensity (r) to consider:", min_value=0.01, value=0.01, step=0.01)
-max_traffic = st.number_input("Enter the maximum traffic intensity (r) to consider:", min_value=0.01, value=20.0, step=0.01)
+min_traffic = st.number_input("Enter the minimum traffic intensity (r) to consider:", min_value=0.1, value=0.1, step=0.01)
+max_traffic = st.number_input("Enter the maximum traffic intensity (r) to consider:", min_value=0.1, value=20.0, step=0.01)
 
 if st.button("Generate Loss Table"):
     loss_table = erlang_loss_table(max_servers, max_traffic, min_traffic)
