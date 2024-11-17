@@ -50,9 +50,7 @@ st.title("Erlang B Loss Probability Calculator")
 st.header("Calculate Erlang B Loss Probability")
 # Sample
 st.write("### Sample Calculation")
-st.write("For example, if the offered traffic is 10 Erlangs and there are 5 servers, the loss probability is calculated as follows:")
-sample_loss_probability = erlang_b(10, 5)
-st.write(f"Loss Probability for 10 Erlangs and 5 servers: {sample_loss_probability:.4f}")
+st.write("For example, if the offered traffic (r) is 1.33 Erlangs and there are 5 servers (M), the loss probability is calculated as follows:")
 traffic_intensity = st.number_input("Enter the offered traffic in Erlangs (r):", min_value=0.0, value=1.33, step=0.01)
 servers = st.number_input("Enter the number of servers (M):", min_value=1, value=5, step=1)
 
