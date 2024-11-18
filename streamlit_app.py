@@ -46,6 +46,10 @@ def erlang_loss_table(max_servers, max_traffic, min_traffic=1):
 # Streamlit UI
 st.title("Erlang B Loss Probability Calculator")
 
+# LinkedIn Contact Information
+st.sidebar.title("Contact Information")
+st.sidebar.write("For more details, feel free to contact me on [LinkedIn](https://www.linkedin.com/in/li-wanyu/)")
+
 # Session 1: Generate Erlang B Loss Probability
 st.header("Calculate Erlang B Loss Probability")
 # Sample
